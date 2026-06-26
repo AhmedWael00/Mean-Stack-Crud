@@ -1,0 +1,62 @@
+<main style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 30px auto; text-align: center;">
+  
+  <h1 style="color: #2c3e50; margin-bottom: 30px;">📝 Task Manager (CRUD)</h1>
+  
+  <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+    <input type="text" placeholder="Task Title" [(ngModel)]="taskObj.title" 
+           style="padding: 12px; width: 35%; margin-right: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none;">
+    
+    <input type="text" placeholder="Description" [(ngModel)]="taskObj.description" 
+           style="padding: 12px; width: 35%; margin-right: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none;">
+
+    <button (click)="saveTask()" class="btn-add">
+      @if (isEditMode) { Update Task } @else { Add Task }
+    </button>
+    
+    @if (isEditMode) {
+      <button (click)="resetForm()" class="btn-cancel">
+        Cancel
+      </button>
+    }
+  </div>
+
+  <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+
+  <table border="0" style="width: 100%; border-collapse: separate; border-spacing: 0 10px;">
+    <thead>
+      <tr style="background: #34495e; color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <th style="padding: 15px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">Title</th>
+        <th style="padding: 15px;">Description</th>
+        <th style="padding: 15px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      @for (task of tasks; track task._id) {
+        <tr style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <td style="padding: 15px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">{{ task.title }}</td>
+          <td style="padding: 15px; color: #666;">{{ task.description }}</td>
+          <td style="padding: 15px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+            
+            <button (click)="onEdit(task)" class="btn-edit">
+              Edit
+            </button>
+            
+            <button (click)="onDelete(task._id)" class="btn-delete">
+              Delete
+            </button>
+
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="3" style="padding: 30px; background: #fff; border-radius: 10px; color: #777; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            No tasks yet. Start by adding one above!
+          </td>
+        </tr>
+      }
+
+    </tbody>
+  </table>
+
+</main>

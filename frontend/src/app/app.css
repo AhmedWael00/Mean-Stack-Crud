@@ -1,0 +1,59 @@
+/* تنسيق عام لكل الزراير */
+button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px; /* تدويرة الحواف */
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* نعومة الحركة */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* حركة الرفع البسيطة لما الماوس ييجي على أي زرار */
+button:hover {
+  transform: translateY(-2px); /* الزرار يطلع لفوق سنة */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* الضل يزيد */
+}
+
+/* زر الإضافة - نغمق الأخضر قليلاً */
+.btn-add {
+  background-color: #1b5e20; /* أخضر داكن بدلاً من الفاتح */
+  color: #ffffff;
+}
+.btn-add:hover {
+  background-color: #2ecc71; /* لون أفتح شوية */
+}
+
+/* 2. زرار الإلغاء (رصاصي) */
+.btn-cancel {
+  background-color: #95a5a6;
+  color: white;
+  margin-left: 10px;
+}
+.btn-cancel:hover {
+  background-color: #bdc3c7;
+}
+
+/* 3. زرار التعديل (برتقالي) */
+.btn-edit {
+  /* background-color: #f39c12;
+  color: white; */
+  background-color: #ffc107; /* أصفر/برتقالي */
+  color: #3a3939; /* تغيير النص للأسود ليصبح مقروءاً */
+  font-weight: bold;
+  margin-right: 5px;
+}
+.btn-edit:hover {
+  background-color: #f1c40f;
+}
+
+/* 4. زرار الحذف (أحمر) */
+.btn-delete {
+  background-color: #b71c1c; /* أحمر داكن */
+  color: #ffffff;
+}
+.btn-delete:hover {
+  background-color: #c0392b; /* لون أغمق */
+}
+/* ///////////////////////////////////////////////////////////////////////////// */
